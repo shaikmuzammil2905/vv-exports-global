@@ -107,37 +107,40 @@ export default function IndustriesPage() {
             <h2 className="section-title">Where Our Products Are <span>Used</span></h2>
           </div>
 
-          <div style={{ display: 'grid', gap: 32, marginTop: 56 }}>
+          <div className="industries-detail-list">
             {industries.map((industry, i) => (
-              <div
+              <article
                 key={industry.id}
                 id={industry.id}
-                className={`reveal ${i % 2 === 0 ? '' : 'delay-100'}`}
-                style={{ background: 'var(--white)', borderRadius: 'var(--radius-xl)', padding: '40px', boxShadow: 'var(--shadow-md)', display: 'grid', gridTemplateColumns: '1fr 2fr', gap: 48, alignItems: 'center', border: '1px solid var(--gray-200)' }}
+                className={`industry-detail-card reveal ${i % 2 === 0 ? '' : 'delay-100'}`}
               >
-                <div>
-                  <div className="industry-icon" style={{ width: 72, height: 72, marginBottom: 24 }}>
+                <div className="industry-detail-left">
+                  <div className="industry-detail-icon">
                     {industry.icon}
                   </div>
-                  <h2 style={{ fontSize: '1.3rem', color: 'var(--navy-900)', marginBottom: 8 }}>{industry.title}</h2>
-                  <p style={{ color: 'var(--cyan-500)', fontWeight: 600, fontSize: '0.9rem', marginBottom: 16 }}>{industry.subtitle}</p>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                  <h2 className="industry-detail-title">{industry.title}</h2>
+                  <p className="industry-detail-subtitle">{industry.subtitle}</p>
+                  <div className="industry-detail-badges">
                     {industry.products.map(p => (
-                      <span key={p} style={{ padding: '4px 12px', background: 'rgba(0,180,216,0.1)', color: 'var(--cyan-500)', borderRadius: 'var(--radius-full)', fontSize: '0.78rem', fontWeight: 600 }}>
+                      <span key={p} className="industry-product-pill">
                         {p}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div>
-                  <p style={{ color: 'var(--gray-600)', lineHeight: 1.75, marginBottom: 24 }}>{industry.desc}</p>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 8 }}>
+
+                <div className="industry-detail-right">
+                  <p className="industry-detail-desc">{industry.desc}</p>
+                  <div className="industry-detail-uses-grid">
                     {industry.uses.map((use, ui) => (
-                      <div key={ui} className="application-tag">{use}</div>
+                      <div key={ui} className="industry-detail-use-item">
+                        <span className="industry-use-dot" />
+                        <span>{use}</span>
+                      </div>
                     ))}
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
