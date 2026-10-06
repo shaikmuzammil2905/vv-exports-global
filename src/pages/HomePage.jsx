@@ -37,6 +37,21 @@ export default function HomePage() {
   useScrollReveal()
   const [openFaq, setOpenFaq] = useState(null)
   const [successOpen, setSuccessOpen] = useState(false)
+  const [selectedCert, setSelectedCert] = useState(null)
+
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') setSelectedCert(null)
+    }
+    if (selectedCert) {
+      document.body.style.overflow = 'hidden'
+      window.addEventListener('keydown', handleEsc)
+    }
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', handleEsc)
+    }
+  }, [selectedCert])
 
   return (
     <>
@@ -500,6 +515,248 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* GOVERNMENT REGISTRATIONS & CERTIFICATES */}
+      <section className="certificates-section section" aria-labelledby="certificates-heading">
+        <div className="container">
+          <div className="text-center reveal">
+            <div className="section-label">Official Accreditations</div>
+            <h2 className="section-title" id="certificates-heading">
+              Certified &amp; Registered for <span>Global Trade</span>
+            </h2>
+            <p className="section-desc" style={{ margin: '0 auto', maxWidth: 680 }}>
+              VV EXPORTS operates with full regulatory compliance and verified government registrations from the Directorate General of Foreign Trade (DGFT) and the Food Safety and Standards Authority of India (FSSAI).
+            </p>
+          </div>
+
+          <div className="certificates-grid">
+            {/* IEC Certificate Card */}
+            <div className="certificate-card reveal">
+              <div className="certificate-badge-top">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                Government of India Verified
+              </div>
+
+              <div
+                className="certificate-preview-container"
+                onClick={() => setSelectedCert('/certificates/iec-certificate.png')}
+                role="button"
+                tabIndex={0}
+                onKeyDown={e => e.key === 'Enter' && setSelectedCert('/certificates/iec-certificate.png')}
+                aria-label="View IEC Certificate in full size"
+              >
+                <img
+                  src="/certificates/iec-certificate.png"
+                  alt="Importer-Exporter Code (IEC) Certificate issued to VV EXPORTS by DGFT, Ministry of Commerce and Industry"
+                  loading="lazy"
+                  className="certificate-img"
+                  width="400"
+                  height="570"
+                />
+                <div className="certificate-zoom-overlay">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    <line x1="11" y1="8" x2="11" y2="14"/>
+                    <line x1="8" y1="11" x2="14" y2="11"/>
+                  </svg>
+                  <span>Click to View Certificate</span>
+                </div>
+              </div>
+
+              <div className="certificate-info">
+                <div className="certificate-meta">
+                  <span className="cert-code-tag">IEC: ABCFV2208E</span>
+                  <span className="cert-status-tag">Active &amp; Verified</span>
+                </div>
+                <h3 className="certificate-name">Importer-Exporter Code (IEC)</h3>
+                <p className="certificate-authority">
+                  Directorate General of Foreign Trade (DGFT)<br />
+                  Ministry of Commerce and Industry, Government of India
+                </p>
+
+                <div className="certificate-details-list">
+                  <div className="cert-detail-row">
+                    <span className="cert-detail-label">Firm Name:</span>
+                    <span className="cert-detail-val">VV EXPORTS</span>
+                  </div>
+                  <div className="cert-detail-row">
+                    <span className="cert-detail-label">PAN Number:</span>
+                    <span className="cert-detail-val">ABCFV2208E</span>
+                  </div>
+                  <div className="cert-detail-row">
+                    <span className="cert-detail-label">Issue Date:</span>
+                    <span className="cert-detail-val">23/06/2026</span>
+                  </div>
+                  <div className="cert-detail-row">
+                    <span className="cert-detail-label">Authorized Signatory:</span>
+                    <span className="cert-detail-val">Vamsi Krishna Reddy M</span>
+                  </div>
+                </div>
+
+                <div className="certificate-actions">
+                  <button
+                    onClick={() => setSelectedCert('/certificates/iec-certificate.png')}
+                    className="btn btn-primary"
+                    id="view-iec-btn"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <circle cx="11" cy="11" r="8"/>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                    View Certificate
+                  </button>
+                  <a
+                    href="/certificates/iec-certificate.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-outline"
+                    id="download-iec-pdf"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                      <polyline points="7 10 12 15 17 10"/>
+                      <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Download PDF
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* FSSAI Certificate Card */}
+            <div className="certificate-card reveal delay-100">
+              <div className="certificate-badge-top" style={{ background: 'linear-gradient(135deg, #16a34a, #00b4d8)' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                FSSAI Food Safety Registered
+              </div>
+
+              <div
+                className="certificate-preview-container"
+                onClick={() => setSelectedCert('/certificates/fssai-certificate.png')}
+                role="button"
+                tabIndex={0}
+                onKeyDown={e => e.key === 'Enter' && setSelectedCert('/certificates/fssai-certificate.png')}
+                aria-label="View FSSAI Certificate in full size"
+              >
+                <img
+                  src="/certificates/fssai-certificate.png"
+                  alt="FSSAI Registration Certificate issued to VV EXPORTS by Food Safety and Standards Authority of India"
+                  loading="lazy"
+                  className="certificate-img"
+                  width="400"
+                  height="570"
+                />
+                <div className="certificate-zoom-overlay">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    <line x1="11" y1="8" x2="11" y2="14"/>
+                    <line x1="8" y1="11" x2="14" y2="11"/>
+                  </svg>
+                  <span>Click to View Certificate</span>
+                </div>
+              </div>
+
+              <div className="certificate-info">
+                <div className="certificate-meta">
+                  <span className="cert-code-tag" style={{ color: '#16a34a', borderColor: 'rgba(22,163,74,0.3)', background: 'rgba(22,163,74,0.1)' }}>
+                    Reg No: 21226009002303
+                  </span>
+                  <span className="cert-status-tag">Valid Upto 2027</span>
+                </div>
+                <h3 className="certificate-name">FSSAI Food Safety Registration</h3>
+                <p className="certificate-authority">
+                  Food Safety and Standards Authority of India<br />
+                  Government of Karnataka (FSS Act, 2006)
+                </p>
+
+                <div className="certificate-details-list">
+                  <div className="cert-detail-row">
+                    <span className="cert-detail-label">FBO Name:</span>
+                    <span className="cert-detail-val">VV EXPORTS</span>
+                  </div>
+                  <div className="cert-detail-row">
+                    <span className="cert-detail-label">Business Kind:</span>
+                    <span className="cert-detail-val">Retailer, Distributor, Wholesaler</span>
+                  </div>
+                  <div className="cert-detail-row">
+                    <span className="cert-detail-label">Registration Date:</span>
+                    <span className="cert-detail-val">09/06/2026</span>
+                  </div>
+                  <div className="cert-detail-row">
+                    <span className="cert-detail-label">Jurisdiction:</span>
+                    <span className="cert-detail-val">Bangalore Urban, Karnataka</span>
+                  </div>
+                </div>
+
+                <div className="certificate-actions">
+                  <button
+                    onClick={() => setSelectedCert('/certificates/fssai-certificate.png')}
+                    className="btn btn-primary"
+                    id="view-fssai-btn"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <circle cx="11" cy="11" r="8"/>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                    View Certificate
+                  </button>
+                  <a
+                    href="/certificates/fssai-certificate.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-outline"
+                    id="download-fssai-pdf"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                      <polyline points="7 10 12 15 17 10"/>
+                      <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Download PDF
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Certificate Lightbox Modal */}
+      {selectedCert && (
+        <div
+          className="modal-overlay open"
+          onClick={() => setSelectedCert(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Certificate view"
+        >
+          <div className="certificate-modal-content" onClick={e => e.stopPropagation()}>
+            <button
+              className="modal-close"
+              onClick={() => setSelectedCert(null)}
+              aria-label="Close certificate modal"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+            <div className="certificate-modal-body">
+              <img
+                src={selectedCert}
+                alt="Official Government Certificate"
+                className="certificate-modal-img"
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       <SuccessModal open={successOpen} onClose={() => setSuccessOpen(false)} />
     </>
