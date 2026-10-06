@@ -72,14 +72,14 @@ export default function ProductDetailPage() {
         </div>
       </section>
 
-      {/* Applications */}
+      {/* Applications & Benefits */}
       <section className="section" style={{ background: 'var(--gray-50)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'start' }}>
+          <div className="product-apps-benefits-grid">
             <div>
               <div className="section-label reveal">Applications</div>
               <h2 className="section-title reveal">Where <span>{product.name}</span> is Used</h2>
-              <p className="reveal delay-100" style={{ marginBottom: 28 }}>
+              <p className="reveal delay-100" style={{ marginBottom: 28, color: 'var(--gray-600)', lineHeight: 1.7 }}>
                 {product.name} serves diverse industries and applications in international markets. Here are the primary uses:
               </p>
               <div className="applications-list reveal delay-200">
@@ -91,17 +91,17 @@ export default function ProductDetailPage() {
             <div>
               <div className="section-label reveal">Key Benefits</div>
               <h2 className="section-title reveal">Why Buyers <span>Choose This Product</span></h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginTop: 28 }}>
+              <div className="benefits-list">
                 {product.benefits.map((benefit, i) => (
-                  <div key={i} className={`reveal delay-${Math.min((i + 1) * 100, 400)}`} style={{ display: 'flex', gap: 16, alignItems: 'flex-start', padding: '16px 20px', background: 'var(--white)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--gray-200)' }}>
-                    <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'rgba(0,180,216,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b4d8" strokeWidth="2.5">
+                  <div key={i} className={`benefit-card reveal delay-${Math.min((i + 1) * 100, 400)}`}>
+                    <div className="benefit-icon-wrap">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00b4d8" strokeWidth="2.5">
                         <polyline points="20 6 9 17 4 12"/>
                       </svg>
                     </div>
                     <div>
-                      <p style={{ fontWeight: 700, color: 'var(--navy-900)', marginBottom: 4, fontSize: '0.92rem' }}>{benefit.title}</p>
-                      <p style={{ fontSize: '0.85rem', color: 'var(--gray-500)', lineHeight: 1.6, margin: 0 }}>{benefit.desc}</p>
+                      <p className="benefit-title">{benefit.title}</p>
+                      <p className="benefit-desc">{benefit.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -114,16 +114,16 @@ export default function ProductDetailPage() {
       {/* Packaging & Export Info */}
       <section className="section" style={{ background: 'var(--white)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 28 }}>
+          <div className="product-info-cards-grid">
             {[
               { title: 'Packaging Information', content: product.packaging, icon: '📦' },
               { title: 'Export & Sourcing', content: product.exportInfo, icon: '🚢' },
               { title: 'Quality & Specifications', content: product.qualityInfo, icon: '✅' },
             ].map((item, i) => (
-              <div key={i} className={`reveal delay-${(i + 1) * 100}`} style={{ background: 'var(--gray-50)', borderRadius: 'var(--radius-xl)', padding: '32px 28px', border: '1px solid var(--gray-200)' }}>
+              <div key={i} className={`product-info-card reveal delay-${(i + 1) * 100}`}>
                 <div style={{ fontSize: '1.8rem', marginBottom: 16 }}>{item.icon}</div>
-                <h3 style={{ color: 'var(--navy-900)', marginBottom: 12, fontSize: '1rem' }}>{item.title}</h3>
-                <p style={{ fontSize: '0.9rem', color: 'var(--gray-500)', lineHeight: 1.7 }}>{item.content}</p>
+                <h3 style={{ color: 'var(--navy-900)', marginBottom: 12, fontSize: '1.05rem', fontWeight: 700 }}>{item.title}</h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--gray-600)', lineHeight: 1.7, margin: 0 }}>{item.content}</p>
               </div>
             ))}
           </div>
@@ -190,7 +190,7 @@ export default function ProductDetailPage() {
             <div className="section-label">Related Products</div>
             <h2 className="section-title">Also Available from <span>VV EXPORTS</span></h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24, marginTop: 48 }}>
+          <div className="product-related-grid">
             {relatedProducts.map((p, i) => (
               <article
                 key={p.slug}

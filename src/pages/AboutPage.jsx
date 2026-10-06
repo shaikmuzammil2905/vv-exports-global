@@ -62,7 +62,7 @@ export default function AboutPage() {
             <div className="section-label">What We Do</div>
             <h2 className="section-title">Our <span>Role</span> in Global Trade</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24, marginTop: 56 }}>
+          <div className="about-roles-grid" style={{ marginTop: 56 }}>
             {[
               {
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>,
@@ -157,7 +157,7 @@ export default function AboutPage() {
               Here's what makes VV EXPORTS a reliable partner for international buyers seeking quality Indian products.
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 24, marginTop: 56 }}>
+          <div className="about-commitments-grid" style={{ marginTop: 56 }}>
             {[
               { title: 'India-Based Business', desc: 'Operating from the heart of India\'s export ecosystem in Bangalore, we have direct access to Indian product suppliers and market knowledge.' },
               { title: 'Quality Focus', desc: 'We focus on connecting buyers with quality products and take product quality seriously in our sourcing and supplier connections.' },

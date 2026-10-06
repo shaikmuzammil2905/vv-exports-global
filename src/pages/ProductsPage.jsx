@@ -91,7 +91,7 @@ export default function ProductsPage() {
             <div className="section-label">How We Source</div>
             <h2 className="section-title">Our <span>Sourcing Approach</span></h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 24, marginTop: 56 }}>
+          <div className="product-sourcing-grid" style={{ marginTop: 56 }}>
             {[
               { icon: '🌱', title: 'Indian Agricultural Origin', desc: 'All products are sourced from India\'s established agricultural regions with appropriate growing conditions for each crop.' },
               { icon: '🔗', title: 'Supplier Connections', desc: 'We connect buyers with Indian suppliers who can meet buyer specifications for quality and quantity.' },

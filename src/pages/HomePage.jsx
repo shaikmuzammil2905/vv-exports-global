@@ -313,7 +313,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="reveal-right" style={{ display: 'grid', gap: 20, gridTemplateColumns: '1fr 1.2fr' }}>
+            <div className="reveal-right about-visual-grid">
               <div className="about-image reveal-right delay-100" style={{ height: 'auto' }}>
                 <img
                   src="/about-logistics.jpg"
