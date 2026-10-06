@@ -7,20 +7,8 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Brand */}
           <div className="footer-brand">
-            <Link to="/" className="header-logo" style={{ marginBottom: '4px', display: 'inline-flex' }}>
-              <div className="header-logo-icon">
-                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: 26, height: 26 }}>
-                  <circle cx="16" cy="16" r="12" stroke="white" strokeWidth="1.5" />
-                  <path d="M4 16 C8 10, 24 10, 28 16 C24 22, 8 22, 4 16Z" stroke="#00b4d8" strokeWidth="1.5" fill="none" />
-                  <line x1="16" y1="4" x2="16" y2="28" stroke="white" strokeWidth="1.5" />
-                  <path d="M10 8 L22 8 M8 16 L24 16 M10 24 L22 24" stroke="#00b4d8" strokeWidth="1" />
-                  <path d="M22 10 L26 16 L22 20" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-              </div>
-              <div className="header-logo-text">
-                <span className="header-logo-name">VV EXPORTS</span>
-                <span className="header-logo-sub">SINCE 2026</span>
-              </div>
+            <Link to="/" className="header-logo" style={{ marginBottom: '16px', display: 'inline-flex' }}>
+              <img src="/logo.png" alt="VV EXPORTS SINCE 2026" className="footer-logo-img" />
             </Link>
             <p>
               Connecting quality Indian products with global markets through reliable business opportunities and long-term trade relationships.

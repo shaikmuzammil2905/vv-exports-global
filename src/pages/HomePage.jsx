@@ -44,7 +44,8 @@ export default function HomePage() {
       <section className="hero" aria-label="Hero section">
         <div className="hero-bg">
           <picture>
-            <source srcSet="/hero-mobile.jpg" media="(max-width: 768px)" />
+            <source srcSet="/hero-mobile.webp" type="image/webp" media="(max-width: 768px)" />
+            <source srcSet="/hero-mobile.png" media="(max-width: 768px)" />
             <img
               src="/hero-desktop.jpg"
               alt="International cargo port with ship and Indian products — moringa, coconut, coconut oil"

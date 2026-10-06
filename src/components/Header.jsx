@@ -32,13 +32,7 @@ export default function Header() {
     <>
       <header className={`header ${scrolled ? 'header-scrolled' : 'header-transparent'}`}>
         <Link to="/" className="header-logo" onClick={closeDrawer} aria-label="VV EXPORTS Home">
-          <div className="header-logo-icon">
-            <LogoIcon />
-          </div>
-          <div className="header-logo-text">
-            <span className="header-logo-name">VV EXPORTS</span>
-            <span className="header-logo-sub">SINCE 2026</span>
-          </div>
+          <img src="/logo.png" alt="VV EXPORTS SINCE 2026" className="header-logo-img" />
         </Link>
 
         <nav aria-label="Primary navigation">
