@@ -376,23 +376,29 @@ input, textarea, select {
   transition: transform var(--transition-fast);
 }
 .header-logo:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 .header-logo-img {
-  height: 48px;
+  height: 64px;
   width: auto;
-  max-width: 200px;
+  max-width: 280px;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 10px;
   display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+  transition: height 0.3s ease;
+}
+.header-scrolled .header-logo-img {
+  height: 54px;
 }
 .footer-logo-img {
-  height: 56px;
+  height: 84px;
   width: auto;
-  max-width: 240px;
+  max-width: 340px;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 10px;
   display: block;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
 }
 
 .header-nav {
@@ -1635,7 +1641,11 @@ select.form-control { cursor: pointer; }
     background: rgba(7, 18, 33, 0.98);
   }
   .header-logo-img {
-    height: 42px;
+    height: 54px;
+    max-width: 220px;
+  }
+  .header-scrolled .header-logo-img {
+    height: 48px;
   }
   .header-nav { display: none; }
   .header .btn-primary { display: none; }
